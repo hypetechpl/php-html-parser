@@ -1,15 +1,20 @@
 {
-    "name": "paquettg/php-html-parser",
+    "name": "hypetechpl/php-html-parser",
     "type": "library",
     "description": "An HTML DOM parser. It allows you to manipulate HTML. Find tags on an HTML page with selectors just like jQuery.",
     "keywords": ["html", "dom", "parser"],
-    "homepage": "https://github.com/paquettg/php-html-parser",
+    "homepage": "https://github.com/hypetechpl/php-html-parser",
     "license": "MIT",
     "authors": [
         {
             "name": "Gilles Paquette",
             "email": "paquettg@gmail.com",
             "homepage": "http://gillespaquette.ca"
+        },
+        {
+            "name": "HypeTech.pl",
+            "email": "biuro@hypetech.pl",
+            "homepage": "http://www.hypetech.pl"
         }
     ],
     "require": {
