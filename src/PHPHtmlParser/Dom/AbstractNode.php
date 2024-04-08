@@ -19,6 +19,7 @@ use PHPHtmlParser\Finder;
  * @property Tag       $tag
  * @property InnerNode $parent
  */
+#[\AllowDynamicProperties]
 abstract class AbstractNode
 {
     /**

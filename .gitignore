@@ -4,3 +4,6 @@ infection.log
 /vendor/
 .idea/
 *.swp
+/.phpunit.cache/
+/.phpunit.result.cache
+/phpunit.xml.bak

@@ -190,6 +190,6 @@ class NodeTagTest extends TestCase {
     {
         $tag = new Tag('div');
         $tag->setStyleAttributeValue('display', 'none');
-        $this->assertInternalType('array', $tag->getStyleAttributeArray());
+        $this->assertIsArray($tag->getStyleAttributeArray());
     }
 }

@@ -5,13 +5,11 @@ use PHPHtmlParser\StaticDom;
 
 class StaticDomTest extends TestCase {
 
-    public function setUp()
-    {
+    public function setUp(): void {
         StaticDom::mount();
     }
 
-    public function tearDown()
-    {
+    public function tearDown(): void {
         StaticDom::unload();
     }
 
@@ -42,11 +40,9 @@ class StaticDomTest extends TestCase {
         $this->assertEquals('VonBurgermeister', $dom->find('.post-user font', 0)->text);
     }
 
-    /**
-     * @expectedException PHPHtmlParser\Exceptions\NotLoadedException
-     */
     public function testFindNoLoad()
     {
+        $this->expectException(\PHPHtmlParser\Exceptions\NotLoadedException::class);
         Dom::find('.post-user font', 0);
     }
 

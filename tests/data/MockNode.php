@@ -8,6 +8,7 @@ namespace PHPHtmlParser\Dom;
  *
  * This object is not to be used for any other reason.
  */
+#[\AllowDynamicProperties]
 class MockNode extends InnerNode
 {
 

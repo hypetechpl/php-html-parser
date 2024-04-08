@@ -49,7 +49,7 @@ class Collection implements IteratorAggregate, ArrayAccess, Countable
      * @return mixed
      * @throws EmptyCollectionException
      */
-    public function __get($key)
+    public function __get(mixed $key)
     {
         $node = reset($this->collection);
         if ($node instanceof AbstractNode) {
@@ -101,7 +101,7 @@ class Collection implements IteratorAggregate, ArrayAccess, Countable
      * @param mixed $offset
      * @param mixed $value
      */
-    public function offsetSet($offset, $value): void
+    public function offsetSet(mixed $offset, mixed $value): void
     {
         if (is_null($offset)) {
             $this->collection[] = $value;
@@ -116,7 +116,7 @@ class Collection implements IteratorAggregate, ArrayAccess, Countable
      * @param mixed $offset
      * @return bool
      */
-    public function offsetExists($offset): bool
+    public function offsetExists(mixed $offset): bool
     {
         return isset($this->collection[$offset]);
     }
@@ -126,7 +126,7 @@ class Collection implements IteratorAggregate, ArrayAccess, Countable
      *
      * @param mixed $offset
      */
-    public function offsetUnset($offset): void
+    public function offsetUnset(mixed $offset): void
     {
         unset($this->collection[$offset]);
     }
@@ -137,7 +137,7 @@ class Collection implements IteratorAggregate, ArrayAccess, Countable
      * @param mixed $offset
      * @return mixed
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
         return $this->collection[$offset] ?? null;
     }
@@ -158,7 +158,7 @@ class Collection implements IteratorAggregate, ArrayAccess, Countable
      *
      * @param callable $callback
      */
-    public function each(callable $callback)
+    public function each(callable $callback): void
     {
         foreach ($this->collection as $key => $value) {
             $callback($value, $key);

@@ -67,11 +67,10 @@ class NodeHtmlTest extends TestCase {
         $this->assertEquals($inner, $parent->innerHtml());
     }
 
-    /**
-     * @expectedException PHPHtmlParser\Exceptions\UnknownChildTypeException
-     */
+
     public function testInnerHtmlUnkownChild()
     {
+        $this->expectException(\PHPHtmlParser\Exceptions\UnknownChildTypeException::class);
         $div = new Tag('div');
         $div->setAttributes([
             'class' => [
@@ -482,11 +481,9 @@ class NodeHtmlTest extends TestCase {
         $this->assertEquals(2, $children);
     }
 
-    /**
-     * @expectedException PHPHtmlParser\Exceptions\ParentNotFoundException
-     */
     public function testAncestorByTagFailure()
     {
+        $this->expectException(\PHPHtmlParser\Exceptions\ParentNotFoundException::class);
         $a    = new Tag('a');
         $node = new HtmlNode($a);
         $node->ancestorByTag('div');
@@ -496,6 +493,7 @@ class NodeHtmlTest extends TestCase {
     {
         $dom = new Dom;
         $dom->load('<div class="all"><p>Hey bro, <a href="google.com">click here</a><br /> :)</p></div>');
+
         $id = $dom->find('p')[0]->id();
         $newChild = new HtmlNode('h1');
         $dom->find('p')[0]->getParent()->replaceChild($id, $newChild);

@@ -7,8 +7,7 @@ use PHPHtmlParser\Dom;
 
 class DomTest extends TestCase {
 
-    public function tearDown()
-    {
+    public function tearDown(): void {
         Mockery::close();
     }
 
@@ -20,11 +19,10 @@ class DomTest extends TestCase {
         $this->assertEquals('<div class="all"><p>Hey bro, <a href="google.com">click here</a><br /> :)</p></div>', $div->outerHtml);
     }
 
-    /**
-     * @expectedException PHPHtmlParser\Exceptions\NotLoadedException
-     */
+
     public function testNotLoaded()
     {
+        $this->expectException(\PHPHtmlParser\Exceptions\NotLoadedException::class);
         $dom = new Dom;
         $div = $dom->find('div', 0);
     }
@@ -358,7 +356,8 @@ class DomTest extends TestCase {
     {
         $dom = new Dom;
         $dom->load('<strong>hello</strong><code class="language-php">$foo = "bar";</code>');
-        $this->assertInternalType('array', $dom->getChildren());
+
+        $this->assertIsArray($dom->getChildren());
     }
 
     public function testHasChildren()
